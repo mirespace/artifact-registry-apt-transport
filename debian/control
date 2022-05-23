@@ -1,0 +1,20 @@
+Source: apt-transport-artifact-registry
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Google Cloud Team <gc-team@google.com>
+Section: misc
+Priority: optional
+Build-Depends: debhelper (>= 13),
+               dh-golang (>= 1.16~),
+               golang-go (>= 1.16~),
+               golang-golang-x-net-dev,
+               golang-golang-x-oauth2-google-dev | golang-golang-x-oauth2-dev
+Standards-Version: 4.6.0
+Homepage: https://github.com/GoogleCloudPlatform/artifact-registry-apt-transport
+Vcs-Git: https://github.com/GoogleCloudPlatform/artifact-registry-apt-transport.git
+
+Package: apt-transport-ar
+Architecture: any
+Depends: ${misc:Depends}
+Description: Artifact Registry Apt transport
+ Contains an apt transport that can be used to configure authenticated access
+ to your Artifact Registry package repository.

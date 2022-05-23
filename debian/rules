@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+export PATH := /tmp/go/bin:$(PATH)
+export SHELL := env PATH=$(PATH) /bin/bash
+
+export DH_OPTIONS
+export DH_GOPKG := github.com/GoogleCloudPlatform/artifact-registry-apt-transport
+export CGO_ENABLED := 0
+export GOCACHE := /tmp/.cache
+
+export GOPROXY := off
+export GO111MODULE := off
+
+%:
+	dh $@  --buildsystem=golang --with=golang
+
+
+override_dh_auto_build:
+	dh_auto_build -O--buildsystem=golang -- -ldflags="-s -w"
+
+override_dh_auto_install:
+#	Binary-only package.
+	dh_auto_install -- --no-source
+	mv debian/apt-transport-ar/usr/bin debian/apt-transport-ar/usr/lib/apt/methods

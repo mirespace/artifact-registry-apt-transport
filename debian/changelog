@@ -1,0 +1,5 @@
+apt-transport-artifact-registry (1:20220518.00-g1ubuntu1) kinetic; urgency=medium
+
+  * New release.
+
+ -- Miriam España Acebal <miriam.espana@canonical.com>  Fri, 20 May 2022 12:41:31 +0200
